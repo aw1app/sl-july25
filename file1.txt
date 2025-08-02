@@ -1,2 +1,2 @@
 today is monday 
-tomkorrow is tuesdAY
+tomkorrow is tuesdAY. and after tomorrow it is wensday.
