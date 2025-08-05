@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Float Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 0 20px;
+      background-color: #f9f9f9;
+    }
+    .container {
+      overflow: auto; /* Clearfix for floated elements */
+    }
+    .float-left {
+      float: left;
+      width: 200px;
+      margin: 0 20px 20px 0;
+      border: 1px solid #ddd;
+      padding: 5px;
+    }
+    .float-right {
+      float: right;
+      width: 200px;
+      margin: 0 0 20px 20px;
+      border: 1px solid #ddd;
+      padding: 5px;
+    }
+    p {
+      line-height: 1.6;
+      color: #333;
+    }
+    .clear {
+      clear: both;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>CSS Float Demo</h1>
+    <p><img src="background.jpg" alt="Left Float Image" class="float-left">This is a sample paragraph with an image floated to the left. The text wraps around the image nicely. You can use the `float` property in CSS to align images or other elements to the left or right, allowing content to flow around them. This is particularly useful for layouts like articles or blogs.</p>
+    <p><img src="background.jpg" alt="Right Float Image" class="float-right">Here’s another paragraph with an image floated to the right. Notice how the text adjusts to the available space. The `overflow: auto` on the container ensures no overflow issues, and `clear: both` can be used to stop the float effect when needed.</p>
+    <div class="clear"></div>
+    <p>After clearing the float, this text starts on a new line, unaffected by the previous floated images.</p>
+  </div>
+</body>
+</html>
