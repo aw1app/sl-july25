@@ -1,0 +1,43 @@
+<html>
+
+
+
+<script>
+    function validation() {
+        let username = document.getElementById('user').value.trim();
+        let pwd = document.getElementById('pwd').value.trim();
+
+        if (!username || !pwd) {
+            alert("Please enter both username and password");
+            return false;
+        }
+
+        if (username === "student" && pwd === "simplilearn") {
+            alert("User details are correct, Login valid");
+            return true;
+        } else {
+            alert("Login Failed, Please enter a valid username and password");
+            return false;
+        }
+    }
+</script>
+
+<body>
+    <form onsubmit="return validation()">
+        <label for="user">Username:</label>
+        <input type="text" id="user" name="user" required><br>
+
+
+        <label for="pwd">Password:</label>
+        <input type="password" id="pwd" name="pwd" required>
+        <br>
+        <input type="submit" value="Login">
+    </form>
+
+
+
+</body>
+
+
+
+</html>
