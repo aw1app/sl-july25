@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Eval Injection Danger</title>
+</head>
+<body>
+  <h3>Unsafe eval() example</h3>
+  <textarea id="userCode" rows="3" cols="40">
+alert('Eval hack!')
+  </textarea>
+  <br><br>
+  <button id="runUnsafe">Run Unsafely</button>
+
+  <script>
+    document.getElementById("runUnsafe").addEventListener("click", () => {
+      const codeInput = document.getElementById("userCode").value;
+      console.log("Running UNSAFE code:", codeInput);
+      // DANGEROUS: Executes whatever user typed
+      eval(codeInput);
+    });
+  </script>
+</body>
+</html>

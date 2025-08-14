@@ -1,0 +1,182 @@
+//--- Lesson 04 Demo 03: ManipulationAndOptimization.js ---
+// String Conversions: Data Types to String
+// Numbers (integers, floats)
+
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.0/dist/purify.min.js"></script>
+
+
+<script>
+
+let num = 42;
+let strNumm = String(num);
+console.log("Converted String:", strNumm);
+
+// Booleans
+let bool = true;
+let strBool1 = String(bool);
+console.log("Converted String:", strBool1);
+
+// Characters (chars)
+let char = 'A';
+let strChar = char.toString();
+console.log("Converted String:", strChar);
+
+// Arrays and Collections
+let array = [1, 2, 3];
+let strArrays = array.join(', ');
+console.log("Converted String:", strArrays); 
+
+// Objects
+let obj = { key: 'value' };
+let strObj = JSON.stringify(obj);
+console.log("Converted String:", strObj);
+
+// Dates and Times
+let date = new Date();
+let strDate1 = date.toISOString();
+console.log("Converted String:", strDate1);
+
+// String Conversions: Parsing Strings to Other Data Types
+// Strings to Numbers
+let strNum = "42";
+let parsedNum = parseInt(strNum); // Number(strNum)
+console.log("Parsed Number:", parsedNum);
+
+// Strings to Boolean
+let strBool = "true";
+let parsedBool = JSON.parse(strBool);
+console.log("Parsed Boolean:", parsedBool);
+
+// Strings to Dates
+let strDate = "2023-11-24T12:00:00.000Z";
+let parsedDate = new Date(strDate);
+console.log("Parsed Date:", parsedDate);
+
+// Strings to JSON (Objects)
+let strJson = '{"key": "value"}';
+let parsedJson = JSON.parse(strJson);
+console.log("Parsed JSON:", parsedJson);
+
+// Strings to Arrays
+let strArray = "1,2,3";
+let parsedArray = strArray.split(',');
+console.log("Parsed Array:", parsedArray);
+
+// String Immutability
+// Concatenation
+let strOne = "Hello";
+let strTwo = " World!";
+let concatenatedStringg = strOne + strTwo; // Corrected variable name from str1 + str2
+console.log("Concatenated String:", concatenatedStringg);
+
+// String Methods
+let originalStringg = "JavaScript";
+let slicedString = originalStringg.slice(0, 4);
+console.log("Sliced String:", slicedString);
+
+// Template literals (re-demonstration)
+let name = "John";
+let greeting = `Hello, ${name}!`;
+console.log("Template Literal:", greeting);
+
+
+// String Formatting (re-demonstration)
+// Concatenation
+let firstName = "John";
+let lastName = "Doe";
+let fullName = firstName + " " + lastName;
+console.log("Full Name:", fullName);
+
+// Template literals (re-demonstration with more context)
+let age = 30;
+let formattedString = `Name: ${fullName}, Age: ${age}`;
+console.log("Formatted String:", formattedString);
+
+// String concatenation methods (re-demonstration)
+let str1 = "Hello";
+let str2 = " World!";
+let concatenatedString = str1.concat(str2);
+console.log("Concatenated String:", concatenatedString);
+
+// String methods for substring and replacement (re-demonstration)
+let originalString = "JavaScript";
+let replacedString = originalString.replace("Java", "Type");
+console.log("Replaced String:", replacedString);
+
+// String interpolation (re-demonstration)
+let product = "Laptop";
+let price = 1000;
+let invoice = `Product: ${product}, Price: $${price}`;
+console.log("Invoice:", invoice);
+
+
+// String Encoding and Decoding
+// URL encoding and decoding
+let urlString = "https://example.com/?name=John Doe #";
+let encodedUrl = encodeURIComponent(urlString);
+console.log("Encoded URL:", encodedUrl);
+
+let decodedUrl = decodeURIComponent(encodedUrl);
+console.log("Decoded URL:", decodedUrl);
+
+// Base64 encoding and decoding
+let data =  "Hello, World!"; // "Hello, World! \u{1F604}";
+console.log("Original Data:", data);
+let encodedData = btoa(data);
+console.log("Encoded Data:", encodedData);
+
+let decodedData = atob(encodedData);
+console.log("Decoded Data:", decodedData);
+
+
+// String Best Practices
+// Use template literals for concatenation
+let adjective = "amazing";
+let feedback = `The product is ${adjective}!`;
+console.log("Feedback:", feedback);
+
+// Prefer string methods over regular expressions
+let email = "user@example.com";
+let isValidEmail = email.includes("@");
+console.log("Valid Email:", isValidEmail);
+
+// Be mindful of Unicode characters
+let unicodeString = "\u0041"; // Unicode for 'A'
+console.log("Unicode String:", unicodeString);
+
+// Handle empty strings gracefully
+let emptyString = "";
+if (emptyString.trim() === "") {
+    console.log("String is empty.");
+}
+
+// Sanitize user input for security
+// Note: DOMPurify is a library, not a built-in function. This line would cause an error
+// if DOMPurify is not included in the HTML file via a script tag.
+let sanitizedInput = DOMPurify.sanitize(userInput);
+console.log("Sanitized Input:", sanitizedInput);
+//let userInput = "<script>alert('Hello')\</script>";
+//console.log("Original User Input (not sanitized here):", userInput); // Log original for demonstration -->
+
+
+// Utilize regular expressions wisely
+let pattern = /\d+/; // Matches one or more digits
+let hasDigits = pattern.test("abc123");
+console.log("Contains Digits:", hasDigits);
+
+// Optimize string concatenation in loops
+let words = ["Hello", "World", "!"];
+let result = "";
+for (let word of words) {
+    result += word + " ";
+}
+console.log("Concatenated Result:", result.trim());
+
+// Leverage string interpolation for readability
+let quantity = 5;
+let item = "Apples";
+let message = `You have ${quantity} ${item}(s) in your basket.`;
+console.log("Basket Message:", message);
+
+
+</script>

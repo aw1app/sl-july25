@@ -40,9 +40,10 @@ let comparisonResult = string1.localeCompare(string2);
 console.log("String Comparison Result:", comparisonResult);
 
 // Using localeCompare() with different locales
-console.log("ä".localeCompare("z", "en")); // English locale
+console.log("ä".localeCompare("z", "en")); // English locale -1
 
-console.log("German local compare test ", "ä".localeCompare("a", "de")); // German locale
+console.log("German local compare test ", "ä".localeCompare("a", "de")); // German locale -1
+console.log("ä".localeCompare("z", "sv")); // 1 (ä after z in Swedish) 1
 
 console.log("SECTION 2");
 
