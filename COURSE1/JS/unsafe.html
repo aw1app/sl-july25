@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XSS Demo</title>
+</head>
+<body>
+    <h2>Comment Box (Unsafe)</h2>
+    <textarea id="commentBox" rows="3" cols="40"></textarea><br>
+    <button onclick="postComment()">Post Comment</button>
+    <div id="comments"></div>
+
+    <script>
+        function postComment() {
+            let userComment = document.getElementById("commentBox").value;
+
+            // ❌ Directly inject user input into DOM
+            document.getElementById("comments").innerHTML += "<p>" + userComment + "</p>";
+        }
+    </script>
+</body>
+</html>
