@@ -53,9 +53,9 @@ console.log("Search Result for 'World':", searchResult);
 let matchResult = myString.match(/o/g); // myString = "Hello, World!"; /
 console.log("Match Result for 'o':", matchResult);
 
-let str12 = " we saw 100 tigers and,  200 cats  in the forest. 2 of them were injured, but 20 were healthy.";
+let str12 = " we saw 100 tigers and, 200 cats  in the forest. 2 of them were injured, but 20 were healthy.";
 // 8. match() with regex - Using a regex to find all numbers in the string
-let matchResult2 = str12.match(/\d{3}/g);
+let matchResult2 = str12.match(/\d{2,3}/g);
 console.log("Match Result for numbers in str12:", matchResult2);
 
 
