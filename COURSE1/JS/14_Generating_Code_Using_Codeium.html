@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codeium</title>
+</head>
+<body>
+    <h1>Welcome to the best shopping experience on the net!</h1>
+    <p>Welcome to Codeium!</p>
+    
+    <script>
+        function factorial(n) {
+            // Base case: factorial of 0 or 1 is 1
+            if (n <= 1) {
+                return 1;
+            }
+            // Recursive case: n * factorial(n-1)
+            return n * factorial(n - 1);
+        }
+        
+        // Test the function
+        console.log("Factorial of 5:", factorial(5)); // Should output 120
+        console.log("Factorial of 0:", factorial(0)); // Should output 1
+        console.log("Factorial of 3:", factorial(3)); // Should output 6
+        console.log("Factorial of -3:", factorial(-3)); // Should output 1 (negative numbers)
+    </script>
+</body>
