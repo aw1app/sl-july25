@@ -24,3 +24,25 @@ console.log(emp2Id);
 let emp3Id = empId(); // 3
 console.log(emp3Id);
 
+
+class President{
+
+}
+
+    function givePresident() {
+        let pres = new President();
+
+        return function () {
+            return pres;
+        };
+
+    };
+
+    let president = givePresident();
+
+    president();
+
+      president();
+
+        president();
+
