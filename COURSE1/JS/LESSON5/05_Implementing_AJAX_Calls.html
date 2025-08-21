@@ -24,6 +24,8 @@
                 console.log("xhttp.readyState: " + xhttp.readyState);
 
                 if (xhttp.readyState == 4) {
+                     console.log("xhttp.status: " + xhttp.status);
+
                     if ((xhttp.status == 200)) { // Removed incorrect || (xhttpr.status == 0)
                         var image = document.getElementById("get_img");
                         image.src = "data:image/jpeg;base64," + encode64(xhttp.responseText);
