@@ -21,6 +21,8 @@
             xhttp.overrideMimeType('text/plain; charset=x-user-defined');
 
             xhttp.onreadystatechange = function() {
+                console.log("xhttp.readyState: " + xhttp.readyState);
+
                 if (xhttp.readyState == 4) {
                     if ((xhttp.status == 200)) { // Removed incorrect || (xhttpr.status == 0)
                         var image = document.getElementById("get_img");
@@ -62,6 +64,6 @@
         }
     </script>
     <button onClick="ajax_call_demo()">Click here to get an image</button><br />
-    <img id="get_img" />
+    <img src="apple.jpg" id="get_img"  width="200" height="200"/>
 </body>
 </html>
