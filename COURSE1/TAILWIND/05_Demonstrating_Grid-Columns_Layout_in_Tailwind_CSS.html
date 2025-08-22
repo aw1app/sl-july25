@@ -1,0 +1,42 @@
+<!-- FILE: index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid Layout</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <div class="container mx-auto p-4">
+        <h1 class="text-5xl mb-6">Explore Grid Layout Options</h1>
+
+        <!-- Basic 3-column grid -->
+        <h2 class="text-2xl mb-2">1. Basic 3-Column Grid with 9 Elements</h2>
+        <div class="grid grid-cols-3 gap-2">
+            <div class="bg-blue-500 text-white p-4">Item 1</div>
+            <div class="bg-blue-500 text-white p-4">Item 2</div>
+            <div class="bg-blue-500 text-white p-4">Item 3</div>
+            <div class="bg-blue-500 text-white p-4">Item 4</div>
+            <div class="bg-blue-500 text-white p-4">Item 5</div>
+            <div class="bg-blue-500 text-white p-4">Item 6</div>
+            <div class="bg-blue-500 text-white p-4">Item 7</div>
+            <div class="bg-blue-500 text-white p-4">Item 8</div>
+            <div class="bg-blue-500 text-white p-4">Item 9</div>
+        </div>
+
+        <!-- 2-column grid with different widths -->
+        <h2 class="text-2xl mt-6 mb-2">2. Two-Column Grid with Custom Widths</h2>
+        <div class="grid grid-cols-3 gap-4">
+            <div class="col-span-2 bg-green-500 text-white p-4">Item 1 (Spans 2 Columns)</div>
+            <div class="bg-green-500 text-white p-4">Item 2</div>
+        </div>
+
+        <!-- Centering content using place-items -->
+        <h2 class="text-2xl mt-6 mb-2">3. Centering Content</h2>
+        <div class="grid h-2 bg-red-500 text-white place-items-center">
+            <p>Centered Content</p>
+        </div>
+    </div>
+</body>
+</html>
