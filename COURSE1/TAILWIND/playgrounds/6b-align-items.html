@@ -1,0 +1,106 @@
+<!-- FILE: index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flex Layout</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <div class="p-6 space-y-6">
+  <h2 class="text-xl font-bold mb-4">Interactive Align Items Playground</h2>
+
+  <!-- Dropdown -->
+  <label class="block mb-2 font-medium">Choose align option:</label>
+  <select id="alignSelect" class="border p-2 rounded">
+    <option value="items-start">items-start</option>
+    <option value="items-end">items-end</option>
+    <option value="items-center" selected>items-center</option>
+    <option value="items-baseline">items-baseline</option>
+    <option value="items-stretch">items-stretch</option>
+  </select>
+
+  <!-- Flex container -->
+  <div id="alignContainer" class="flex items-center h-32 border border-gray-400 bg-gray-100 p-4 mt-4">
+    <div class="bg-pink-500 text-white px-4 py-2 rounded text-lg">A</div>
+    <div class="bg-pink-500 text-white px-4 py-6 rounded text-sm">B</div>
+    <div class="bg-pink-500 text-white px-4 py-10 rounded text-xl">C</div>
+  </div>
+
+  <!-- Explanation -->
+  <div class="mt-4">
+    <p id="alignExplanation" class="text-sm text-gray-700 mb-2">
+      items-center → Items aligned to the vertical middle of the container
+    </p>
+    <pre id="alignCodeSnippet" class="bg-gray-800 text-green-300 text-sm p-2 rounded">
+&lt;div class="flex items-center h-32"&gt;
+  &lt;div&gt;A&lt;/div&gt;
+  &lt;div&gt;B&lt;/div&gt;
+  &lt;div&gt;C&lt;/div&gt;
+&lt;/div&gt;
+    </pre>
+  </div>
+</div>
+
+<script>
+  const alignSelect = document.getElementById('alignSelect');
+  const alignContainer = document.getElementById('alignContainer');
+  const alignExplanation = document.getElementById('alignExplanation');
+  const alignCodeSnippet = document.getElementById('alignCodeSnippet');
+
+  const alignOptions = {
+    "items-start": {
+      text: "Items aligned to the top (start) of the container",
+      code: `<div class="flex items-start h-32">
+  <div>A</div>
+  <div>B</div>
+  <div>C</div>
+</div>`
+    },
+    "items-end": {
+      text: "Items aligned to the bottom (end) of the container",
+      code: `<div class="flex items-end h-32">
+  <div>A</div>
+  <div>B</div>
+  <div>C</div>
+</div>`
+    },
+    "items-center": {
+      text: "Items aligned to the vertical middle of the container",
+      code: `<div class="flex items-center h-32">
+  <div>A</div>
+  <div>B</div>
+  <div>C</div>
+</div>`
+    },
+    "items-baseline": {
+      text: "Items aligned along their text baseline (useful with different font sizes)",
+      code: `<div class="flex items-baseline h-32">
+  <div class="text-lg">A</div>
+  <div class="text-sm">B</div>
+  <div class="text-xl">C</div>
+</div>`
+    },
+    "items-stretch": {
+      text: "Items stretch to fill the container height (default behavior if no height on items)",
+      code: `<div class="flex items-stretch h-32">
+  <div>A</div>
+  <div>B</div>
+  <div>C</div>
+</div>`
+    }
+  };
+
+  alignSelect.addEventListener('change', (e) => {
+    const value = e.target.value;
+    // Update flex class
+    alignContainer.classList.remove("items-start","items-end","items-center","items-baseline","items-stretch");
+    alignContainer.classList.add(value);
+    // Update explanation + code
+    alignExplanation.textContent = `${value} → ${alignOptions[value].text}`;
+    alignCodeSnippet.textContent = alignOptions[value].code;
+  });
+</script>
+
+</html>

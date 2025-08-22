@@ -1,0 +1,114 @@
+<!-- FILE: index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Grid Playground</title>
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  <style>
+    pre {
+      background: #1e1e1e;
+      color: #dcdcdc;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      margin-top: 1rem;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container mx-auto p-6">
+    <h1 class="text-4xl font-bold mb-6">Interactive Grid Playground</h1>
+
+    <!-- Controls -->
+    <div class="mb-6 flex gap-4 items-center flex-wrap">
+      <label>
+        Columns:
+        <select id="colSelect" class="border rounded p-2">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3" selected>3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+        </select>
+      </label>
+
+      <label>
+        Gap:
+        <select id="gapSelect" class="border rounded p-2">
+          <option value="gap-1">gap-1</option>
+          <option value="gap-2">gap-2</option>
+          <option value="gap-4" selected>gap-4</option>
+          <option value="gap-6">gap-6</option>
+          <option value="gap-8">gap-8</option>
+        </select>
+      </label>
+
+      <label>
+        Items:
+        <select id="itemSelect" class="border rounded p-2">
+          <option value="3">3</option>
+          <option value="6">6</option>
+          <option value="9" selected>9</option>
+          <option value="12">12</option>
+          <option value="15">15</option>
+        </select>
+      </label>
+    </div>
+
+    <!-- Grid Container -->
+    <div id="gridContainer" class="grid grid-cols-3 gap-4 mb-6"></div>
+
+    <!-- Example Code -->
+    <h2 class="text-2xl font-semibold mb-2">Generated Code:</h2>
+    <pre><code id="exampleCode"></code></pre>
+  </div>
+
+  <script>
+    const colSelect = document.getElementById("colSelect");
+    const gapSelect = document.getElementById("gapSelect");
+    const itemSelect = document.getElementById("itemSelect");
+    const gridContainer = document.getElementById("gridContainer");
+    const exampleCode = document.getElementById("exampleCode");
+
+    function updateGrid() {
+      const cols = colSelect.value;
+      const gap = gapSelect.value;
+      const items = parseInt(itemSelect.value, 10);
+
+      // Update grid classes
+      gridContainer.className = `grid grid-cols-${cols} ${gap} mb-6`;
+
+      // Generate grid items
+      gridContainer.innerHTML = "";
+      for (let i = 1; i <= items; i++) {
+        const div = document.createElement("div");
+        div.className = "bg-blue-500 text-white p-4 rounded";
+        div.textContent = `Item ${i}`;
+        gridContainer.appendChild(div);
+      }
+
+      // Show example code
+      exampleCode.textContent = `
+<div class="grid grid-cols-${cols} ${gap}">
+  ${Array.from({ length: items })
+    .map(
+      (_, i) =>
+        `  <div class="bg-blue-500 text-white p-4 rounded">Item ${i + 1}</div>`
+    )
+    .join("\n")}
+</div>`;
+    }
+
+    // Attach events
+    colSelect.addEventListener("change", updateGrid);
+    gapSelect.addEventListener("change", updateGrid);
+    itemSelect.addEventListener("change", updateGrid);
+
+    // Initial render
+    updateGrid();
+  </script>
+</body>
+</html>

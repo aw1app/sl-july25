@@ -1,0 +1,106 @@
+<!-- FILE: index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flex Layout</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <div class="p-6 space-y-6">
+  <h2 class="text-xl font-bold mb-4">Interactive Justify Playground</h2>
+
+  <!-- Dropdown -->
+  <label class="block mb-2 font-medium">Choose justify option:</label>
+  <select id="justifySelect" class="border p-2 rounded">
+    <option value="justify-start">justify-start</option>
+    <option value="justify-end">justify-end</option>
+    <option value="justify-center" selected>justify-center</option>
+    <option value="justify-around">justify-around</option>
+    <option value="justify-between">justify-between</option>
+  </select>
+
+  <!-- Flex container -->
+  <div id="flexContainer" class="flex justify-center border border-gray-400 bg-gray-100 p-4 mt-4">
+    <div class="bg-blue-500 text-white px-4 py-2 rounded">A</div>
+    <div class="bg-blue-500 text-white px-4 py-2 rounded">B</div>
+    <div class="bg-blue-500 text-white px-4 py-2 rounded">C</div>
+  </div>
+
+  <!-- Explanation -->
+  <div class="mt-4">
+    <p id="explanationText" class="text-sm text-gray-700 mb-2">
+      justify-center → Items grouped in the middle
+    </p>
+    <pre id="codeSnippet" class="bg-gray-800 text-green-300 text-sm p-2 rounded">
+&lt;div class="flex justify-center"&gt;
+  &lt;div&gt;A&lt;/div&gt;
+  &lt;div&gt;B&lt;/div&gt;
+  &lt;div&gt;C&lt;/div&gt;
+&lt;/div&gt;
+    </pre>
+  </div>
+</div>
+
+<script>
+  const select = document.getElementById('justifySelect');
+  const flexContainer = document.getElementById('flexContainer');
+  const explanationText = document.getElementById('explanationText');
+  const codeSnippet = document.getElementById('codeSnippet');
+
+  const options = {
+    "justify-start": {
+      text: "Items stick to the left",
+      code: `<div class="flex justify-start">
+  <div>A</div>
+  <div>B</div>
+  <div>C</div>
+</div>`
+    },
+    "justify-end": {
+      text: "Items stick to the right",
+      code: `<div class="flex justify-end">
+  <div>A</div>
+  <div>B</div>
+  <div>C</div>
+</div>`
+    },
+    "justify-center": {
+      text: "Items grouped in the middle",
+      code: `<div class="flex justify-center">
+  <div>A</div>
+  <div>B</div>
+  <div>C</div>
+</div>`
+    },
+    "justify-around": {
+      text: "Equal space around each item (edges smaller)",
+      code: `<div class="flex justify-around">
+  <div>A</div>
+  <div>B</div>
+  <div>C</div>
+</div>`
+    },
+    "justify-between": {
+      text: "Items pushed to edges, space only in between",
+      code: `<div class="flex justify-between">
+  <div>A</div>
+  <div>B</div>
+  <div>C</div>
+</div>`
+    }
+  };
+
+  select.addEventListener('change', (e) => {
+    const value = e.target.value;
+    // Update flex class
+    flexContainer.classList.remove("justify-start","justify-end","justify-center","justify-around","justify-between");
+    flexContainer.classList.add(value);
+    // Update explanation + code
+    explanationText.textContent = `${value} → ${options[value].text}`;
+    codeSnippet.textContent = options[value].code;
+  });
+</script>
+
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flex Layout</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    
+    
+    <div class="p-6 space-y-6">
+  <h2 class="text-xl font-bold mb-4">Flexbox Playground (Justify + Align)</h2>
+
+  <!-- Controls -->
+  <div class="flex gap-6">
+    <!-- Justify -->
+    <div>
+      <label class="block mb-2 font-medium">Choose justify option:</label>
+      <select id="justifySelect" class="border p-2 rounded">
+        <option value="justify-start">justify-start</option>
+        <option value="justify-end">justify-end</option>
+        <option value="justify-center" selected>justify-center</option>
+        <option value="justify-around">justify-around</option>
+        <option value="justify-between">justify-between</option>
+      </select>
+    </div>
+
+    <!-- Align -->
+    <div>
+      <label class="block mb-2 font-medium">Choose align option:</label>
+      <select id="alignSelect" class="border p-2 rounded">
+        <option value="items-start">items-start</option>
+        <option value="items-end">items-end</option>
+        <option value="items-center" selected>items-center</option>
+        <option value="items-baseline">items-baseline</option>
+        <option value="items-stretch">items-stretch</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Flex container -->
+  <div id="flexContainer" class="flex justify-center items-center h-40 border border-gray-400 bg-gray-100 p-4 mt-4">
+    <div class="bg-blue-500 text-white px-4 py-2 rounded text-lg">A</div>
+    <div class="bg-blue-500 text-white px-4 py-6 rounded text-sm">B</div>
+    <div class="bg-blue-500 text-white px-4 py-10 rounded text-xl">C</div>
+  </div>
+
+  <!-- Explanation -->
+  <div class="mt-4">
+    <p id="explanationText" class="text-sm text-gray-700 mb-2">
+      justify-center + items-center → Items are centered horizontally and vertically
+    </p>
+    <pre id="codeSnippet" class="bg-gray-800 text-green-300 text-sm p-2 rounded">
+&lt;div class="flex justify-center items-center h-40"&gt;
+  &lt;div&gt;A&lt;/div&gt;
+  &lt;div&gt;B&lt;/div&gt;
+  &lt;div&gt;C&lt;/div&gt;
+&lt;/div&gt;
+    </pre>
+  </div>
+</div>
+
+<script>
+  const justifySelect = document.getElementById('justifySelect');
+  const alignSelect = document.getElementById('alignSelect');
+  const flexContainer = document.getElementById('flexContainer');
+  const explanationText = document.getElementById('explanationText');
+  const codeSnippet = document.getElementById('codeSnippet');
+
+  const justifyOptions = {
+    "justify-start": "Items stick to the left",
+    "justify-end": "Items stick to the right",
+    "justify-center": "Items grouped in the middle",
+    "justify-around": "Equal space around each item (edges smaller)",
+    "justify-between": "Items pushed to edges, space only in between"
+  };
+
+  const alignOptions = {
+    "items-start": "Items aligned to the top (start) of the container",
+    "items-end": "Items aligned to the bottom (end) of the container",
+    "items-center": "Items aligned to the vertical middle of the container",
+    "items-baseline": "Items aligned along their text baseline (different font sizes)",
+    "items-stretch": "Items stretch to fill the container height"
+  };
+
+  function updatePlayground() {
+    const justifyValue = justifySelect.value;
+    const alignValue = alignSelect.value;
+
+    // Remove old classes
+    flexContainer.classList.remove(...Object.keys(justifyOptions), ...Object.keys(alignOptions));
+
+    // Add new classes
+    flexContainer.classList.add(justifyValue, alignValue);
+
+    // Update explanation
+    explanationText.textContent = `${justifyValue} + ${alignValue} → ${justifyOptions[justifyValue]}, ${alignOptions[alignValue]}`;
+
+    // Update code snippet
+    codeSnippet.textContent = `<div class="flex ${justifyValue} ${alignValue} h-40">
+  <div>A</div>
+  <div>B</div>
+  <div>C</div>
+</div>`;
+  }
+
+  // Initial update
+  updatePlayground();
+
+  // Event listeners
+  justifySelect.addEventListener('change', updatePlayground);
+  alignSelect.addEventListener('change', updatePlayground);
+</script>
+
+</body>
+</html>
