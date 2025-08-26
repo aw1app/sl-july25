@@ -1,0 +1,119 @@
+<!-- FILE: index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Elements</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <div class="container mx-auto min-h-screen p-4">
+        <!-- Hero Section -->
+        <section class="bg-blue-600 text-white py-10 px-5 text-center rounded-lg">
+            <div class="max-w-3xl mx-auto">
+                <h1 class="text-5xl font-bold">Register with us</h1>
+            </div>
+        </section>
+
+        <!-- Form Card -->
+        <div class="bg-white p-6 mt-10 rounded-lg shadow-md w-full max-w-md mx-auto">
+            <h2 class="text-2xl font-bold mb-4 text-gray-700">Registration Form</h2>
+            <form class="space-y-4" autocomplete="on" novalidate>
+                <!-- Full Name -->
+                <div class="flex flex-col">
+                    <label for="name" class="text-lg font-medium text-gray-600">Full Name</label>
+                    <input type="text" id="name" name="name" required class="mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-400" autocomplete="name" />
+                    <span id="nameError" class="text-red-500 text-xs mt-1 hidden">Name is required</span>
+                </div>
+                <!-- Email -->
+                <div class="flex flex-col">
+                    <label for="email" class="text-lg font-medium text-gray-600">Email</label>
+                    <input type="email" id="email" name="email" required class="mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400" autocomplete="email" />
+                    <span id="emailError" class="text-red-500 text-xs mt-1 hidden">Invalid email address</span>
+                </div>
+                <!-- Password -->
+                <div class="flex flex-col">
+                    <label for="password" class="text-lg font-medium text-gray-600">Password</label>
+                    <input type="password" id="password" name="password" required class="mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400" autocomplete="new-password" />
+                    <span id="passwordError" class="text-red-500 text-xs mt-1 hidden">Password must be at least 6 characters</span>
+                </div>
+                <!-- Checkbox -->
+                <div class="flex items-center">
+                    <input type="checkbox" id="terms" required class="w-4 h-4 text-blue-600 border-gray-300 rounded">
+                    <label for="terms" class="ml-2 text-lg text-gray-700">Accept Terms and Conditions</label>
+                </div>
+                <!-- Radio Buttons -->
+                <label class="block text-lg font-medium text-gray-600">Gender</label>
+                <div class="flex items-center space-x-4">
+                    <label class="flex items-center">
+                        <input type="radio" name="gender" value="male" required class="w-4 h-4 text-blue-600 border-gray-300">
+                        <span class="ml-2 text-lg text-gray-700">Male</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="radio" name="gender" value="female" required class="w-4 h-4 text-blue-600 border-gray-300">
+                        <span class="ml-2 text-lg text-gray-700">Female</span>
+                    </label>
+                </div>
+                <!-- Select Dropdown -->
+                <div>
+                    <label for="country" class="block text-lg font-medium text-gray-600">Country</label>
+                    <select id="country" required class="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400">
+                        <option value="">Select Country</option>
+                        <option value="IN">India</option>
+                        <option value="US">United States</option>
+                        <option value="UK">United Kingdom</option>
+                    </select>
+                </div>
+                <!-- File Upload -->
+                <div>
+                    <label for="file" class="block text-lg font-medium text-gray-600">Upload Profile Picture</label>
+                    <input type="file" id="file" required class="mt-1 px-2 py-1 block w-full text-lg text-gray-700 border border-gray-300 rounded-md cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-400" />
+                </div>
+                <!-- Submit Button -->
+                <div>
+                    <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 transition duration-200">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        const form = document.querySelector('form');
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const nameError = document.getElementById('nameError');
+        const emailError = document.getElementById('emailError');
+        const passwordError = document.getElementById('passwordError');
+
+        form.addEventListener('submit', (e) => {
+            let isValid = true;
+            // Name validation
+            if (nameInput.value.trim() === '') {
+                nameError.classList.remove('hidden');
+                isValid = false;
+            } else {
+                nameError.classList.add('hidden');
+            }
+            // Email validation
+            if (!/\S+@\S+\.\S+/.test(emailInput.value)) {
+                emailError.classList.remove('hidden');
+                isValid = false;
+            } else {
+                emailError.classList.add('hidden');
+            }
+            // Password validation
+            if (passwordInput.value.length < 6) {
+                passwordError.classList.remove('hidden');
+                isValid = false;
+            } else {
+                passwordError.classList.add('hidden');
+            }
+
+            if (!isValid) {
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
