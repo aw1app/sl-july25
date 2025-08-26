@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tailwind Width Utilities Playground</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="p-6 bg-gray-100">
+
+  <h1 class="text-2xl font-bold mb-6">Interactive Tailwind CSS Width Playground</h1>
+
+  <!-- Control Panel -->
+  <div class="space-y-4 mb-6">
+    
+    <!-- Dropdown -->
+    <div>
+      <label for="widthSelect" class="block mb-2 font-medium">Choose a width utility:</label>
+      <select id="widthSelect" class="p-2 border rounded-md">
+        <option value="w-1/2">w-1/2 (50%)</option>
+        <option value="w-1/3">w-1/3 (33%)</option>
+        <option value="w-1/4">w-1/4 (25%)</option>
+        <option value="w-auto">w-auto</option>
+        <option value="w-px">w-px (1px)</option>
+        <option value="w-full">w-full (100%)</option>
+        <option value="w-screen">w-screen (viewport)</option>
+        <option value="w-min">w-min (min-content)</option>
+        <option value="w-max">w-max (max-content)</option>
+        <option value="w-fit">w-fit (fit-content)</option>
+      </select>
+    </div>
+
+    <!-- Text Input -->
+    <div>
+      <label for="customText" class="block mb-2 font-medium">Custom Content:</label>
+      <input id="customText" type="text" 
+             class="p-2 border rounded-md w-full"
+             placeholder="Type something here... (long words to test w-min, w-max, w-fit)">
+    </div>
+  </div>
+
+  <!-- Preview Area -->
+  <div class="bg-gray-300 p-4 h-40 flex items-center justify-center overflow-x-auto">
+    <div id="demoBox" class="w-1/2 bg-blue-500 text-white p-4 rounded-md shadow-md text-center">
+      Tailwind Width Demo
+    </div>
+  </div>
+
+  <!-- Explanation -->
+  <div id="explanation" class="mt-4 p-4 bg-white rounded-md shadow-md border"></div>
+
+  <script>
+    const select = document.getElementById('widthSelect');
+    const demoBox = document.getElementById('demoBox');
+    const explanation = document.getElementById('explanation');
+    const customText = document.getElementById('customText');
+
+    // Map of explanations
+    const explanations = {
+      "w-1/2": "Sets width to 50% of the parent container.",
+      "w-1/3": "Sets width to 33.33% of the parent container.",
+      "w-1/4": "Sets width to 25% of the parent container.",
+      "w-auto": "Width adjusts automatically based on the content.",
+      "w-px": "Width is fixed at 1px (useful for borders/dividers).",
+      "w-full": "Width is 100% of the parent container.",
+      "w-screen": "Width is 100% of the viewport (screen).",
+      "w-min": "Width shrinks to the minimum size of its content (min-content).",
+      "w-max": "Width expands to fit the maximum size of its content (max-content).",
+      "w-fit": "Width fits the content but respects parent constraints (fit-content)."
+    };
+
+    // Function to update box and explanation
+    function updateBox() {
+      // Remove old width classes
+      demoBox.classList.remove(
+        "w-1/2","w-1/3","w-1/4","w-auto","w-px",
+        "w-full","w-screen","w-min","w-max","w-fit"
+      );
+      // Add new width class
+      demoBox.classList.add(select.value);
+      // Update explanation
+      explanation.innerHTML = `<strong>${select.value}</strong>: ${explanations[select.value]}`;
+    }
+
+    // Update content on typing
+    customText.addEventListener('input', () => {
+      demoBox.textContent = customText.value || "Tailwind Width Demo";
+    });
+
+    // Update on selection change
+    select.addEventListener('change', updateBox);
+
+    // Initialize
+    updateBox();
+  </script>
+
+</body>
+</html>
