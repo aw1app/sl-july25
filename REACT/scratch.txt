@@ -8,3 +8,19 @@ npm install –g json-server
  .then  ( resp  => resp.json() )
  .then ( data  => {     } )
 
+
+//NEW USER
+curl -X POST http://localhost:3000/users -H "Content-Type: application/json" -d "{\"name\":\"David\",\"email\":\"david@example.com\",\"phone\":\"456-789-0123\"}"
+ 
+
+//UPDATE USER
+curl -X PUT http://localhost:3000/users/8f7a -H "Content-Type: application/json" -d "{\"name\":\"New David\",\"email\":\"newdavid@example.com\",\"phone\":\"167-890-1234\"}"
+
+
+ Q: will we be exploring having multiple sets of data in a single JSON? 
+ Like another set of key:values for Managers instead of just Users,
+  then another for maybe Articles for the website? and how to pull just the info we want>?
+
+
+  what prevents any random user from using something like postman to update our directly to our live server?
+
