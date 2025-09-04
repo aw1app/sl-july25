@@ -13,9 +13,11 @@ npm install –g json-server
 curl -X POST http://localhost:3000/users -H "Content-Type: application/json" -d "{\"name\":\"David\",\"email\":\"david@example.com\",\"phone\":\"456-789-0123\"}"
  
 
-//UPDATE USER
+//UPDATE USER (FULL UPDATE)
 curl -X PUT http://localhost:3000/users/8f7a -H "Content-Type: application/json" -d "{\"name\":\"New David\",\"email\":\"newdavid@example.com\",\"phone\":\"167-890-1234\"}"
 
+// PARTIAL update
+curl -X PATCH http://localhost:3000/users/8f7a -H "Content-Type: application/json" -d "{\"name\":\"New David 2\"}"
 
  Q: will we be exploring having multiple sets of data in a single JSON? 
  Like another set of key:values for Managers instead of just Users,
@@ -23,4 +25,10 @@ curl -X PUT http://localhost:3000/users/8f7a -H "Content-Type: application/json"
 
 
   what prevents any random user from using something like postman to update our directly to our live server?
+
+  do the JSON databases like MongoDB support object-relational mapping and relationships between objects?  (parent-child, etc?)
+  ORM - yes
+  relationships between objects - yes
+
+
 

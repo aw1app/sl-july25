@@ -31,10 +31,24 @@
       "phone": "244-567-8901"
     },
     {
-      "name": "New David",
-      "email": "newdavid@example.com",
-      "phone": "167-890-1234",
+      "name": "New David 2",
+      "phone": "167-890-0000",
       "id": "8f7a"
     }
-  ]
+  ],
+
+  "managers": [
+    {
+      "id": "1",
+      "name": "Alice",
+      "email": "alice@example.com",
+      "phone": "123-456-7890"
+    },
+    {
+      "id": "2",
+      "name": "Bob",
+      "email": "bob@example.com",
+      "phone": "234-567-8901"
+    }
+]
 }
