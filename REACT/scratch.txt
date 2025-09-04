@@ -3,3 +3,8 @@ npm install –g json-server
 
  json-server --watch db.json
 
+
+ fetch ( url )
+ .then  ( resp  => resp.json() )
+ .then ( data  => {     } )
+
