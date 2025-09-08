@@ -29,14 +29,8 @@
       "name": "Robert ",
       "email": "rob@example.com",
       "phone": "244-567-8901"
-    },
-    {
-      "name": "New David 2",
-      "phone": "167-890-0000",
-      "id": "8f7a"
     }
   ],
-
   "managers": [
     {
       "id": "1",
@@ -50,5 +44,5 @@
       "email": "bob@example.com",
       "phone": "234-567-8901"
     }
-]
+  ]
 }
