@@ -22,7 +22,7 @@ const f1=()=>{ console.log("Hello")};
 
   return (
     <>
-     <h1 >Welcome to Amazon.com </h1>
+     <h1 class={logo} >Welcome to Amazon.com </h1>
 {/* <MyList items={items1}  func1={f1} /> */}
 
      {/* <User name="David" age="24"  address="point"  func1={f1} />
