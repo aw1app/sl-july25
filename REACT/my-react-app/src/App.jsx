@@ -6,6 +6,7 @@ import { Component } from 'react'
 import User from './components/User'
 
 import MyList from './components/MyList';
+import UserGreeting from './components/UserGreeting'
 
  const App = () => {
 let point = {x1:5, y1:6 };
@@ -15,14 +16,19 @@ const items1 = [
     { id: 3, name: 'Item 3' },
 ];
 
+const f1=()=>{ console.log("Hello")};
+
 
   return (
     <>
      <h1 >Welcome to Amazon.com </h1>
-<MyList items={items1} />
+{/* <MyList items={items1}  func1={f1} /> */}
 
-     {/* <User name="David" age="24"  address="point" />
+     {/* <User name="David" age="24"  address="point"  func1={f1} />
+     <br/>
      <User name="John" age="25" /> */}
+
+     <UserGreeting />
     </>
   )
 }

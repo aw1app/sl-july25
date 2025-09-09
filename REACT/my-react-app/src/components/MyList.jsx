@@ -1,15 +1,19 @@
 import React from 'react';
 
-const MyList = ({items}) => {
+const MyList = ({items, func1}) => {
 
 
-    const handleClick = (id, name) => {
-        console.log('Clicked:', name);
+    const handleClick = (evt, id, name) => {
+       
+        console.log('Clicked:', name, evt.target);
     };
 
 
 
     return (
+        <div>
+        <button onClick={func1} > Vlick me to the parent function f1 </button>
+
         <ul>
             {
             items.map(
@@ -17,7 +21,7 @@ const MyList = ({items}) => {
                 ( { id, name } ) =>
 
                 (
-                    <li key={id} onClick={ () => handleClick(id, name) }>
+                    <li key={id} onClick={ (evt) => handleClick(evt, id, name) }>
                         {name}
                     </li>
                 )
@@ -25,6 +29,7 @@ const MyList = ({items}) => {
 
             }
         </ul>
+        </div>
     );
 };
 

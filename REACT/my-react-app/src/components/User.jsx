@@ -19,8 +19,11 @@ class User extends Component {
         // this.state.name = props.name;
         //   this.state.age = props.age;
 
-        
+       this.function1 = this.function1.bind(this);
+    }
 
+    function1(){
+    console.log("Inside function1");
     }
 
     incrementAge = () => {
@@ -43,7 +46,7 @@ class User extends Component {
 
             <button onClick={this.incrementAge} > Increment Age </button> 
 
-            <p onMouseEnter={this.incrementAge} > This is a para. When you click me, I will increment the age </p>
+            <p onMouseEnter={this.function1} > This is a para. When you click me, it will invoke function1 </p>
             </>
         )
 
