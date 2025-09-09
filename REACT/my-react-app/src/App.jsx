@@ -7,6 +7,7 @@ import User from './components/User'
 
 import MyList from './components/MyList';
 import UserGreeting from './components/UserGreeting'
+import ListComponent from './components/L3/ListComponent'
 
  const App = () => {
 let point = {x1:5, y1:6 };
@@ -28,7 +29,9 @@ const f1=()=>{ console.log("Hello")};
      <br/>
      <User name="John" age="25" /> */}
 
-     <UserGreeting />
+     {/* <UserGreeting /> */}
+
+     <ListComponent />
     </>
   )
 }
