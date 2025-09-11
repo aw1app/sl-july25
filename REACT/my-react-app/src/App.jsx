@@ -8,6 +8,7 @@ import User from './components/User'
 import MyList from './components/MyList';
 import UserGreeting from './components/UserGreeting'
 import ListComponent from './components/L3/ListComponent'
+import BasicFormHandling from './components/L3/BasicFormHandling.jsx'
 
  const App = () => {
 let point = {x1:5, y1:6 };
@@ -22,7 +23,9 @@ const f1=()=>{ console.log("Hello")};
 
   return (
     <>
-     <h1 class={logo} >Welcome to Amazon.com </h1>
+     <h1 >Welcome to Amazon.com </h1>
+<BasicFormHandling />
+
 {/* <MyList items={items1}  func1={f1} /> */}
 
      {/* <User name="David" age="24"  address="point"  func1={f1} />
@@ -31,7 +34,7 @@ const f1=()=>{ console.log("Hello")};
 
      {/* <UserGreeting /> */}
 
-     <ListComponent />
+     {/* <ListComponent /> */}
     </>
   )
 }
