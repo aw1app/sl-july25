@@ -9,6 +9,7 @@ import MyList from './components/MyList';
 import UserGreeting from './components/UserGreeting'
 import ListComponent from './components/L3/ListComponent'
 import BasicFormHandling from './components/L3/BasicFormHandling.jsx'
+import Timer from './components/L3/Timer.jsx'
 
  const App = () => {
 let point = {x1:5, y1:6 };
@@ -24,7 +25,9 @@ const f1=()=>{ console.log("Hello")};
   return (
     <>
      <h1 >Welcome to Amazon.com </h1>
-<BasicFormHandling />
+
+     <Timer />
+{/* <BasicFormHandling /> */}
 
 {/* <MyList items={items1}  func1={f1} /> */}
 

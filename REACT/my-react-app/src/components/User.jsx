@@ -22,6 +22,12 @@ class User extends Component {
        this.function1 = this.function1.bind(this);
     }
 
+
+   componentDidMount() {
+    //fetch 
+   }
+
+
     function1(){
     console.log("Inside function1");
     }

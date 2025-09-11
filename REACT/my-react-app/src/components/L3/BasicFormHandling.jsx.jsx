@@ -22,26 +22,20 @@ function BasicFormHandling() {
 
 
     const handleChange = (event) => {
-        console.log("BEFORE formValues",formValues);
-        console.log("BEFORE errors",errors);
-
         const { name, value } = event.target;
 
         setFormValues({ ...formValues, [name]: value });
         setErrors({ ...errors, [name]: false });
-
-        console.log("AFTER formValues",formValues);
-        console.log("AFTER errors",errors);
     };
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        
+
         let formValid = true;
         const errorsCopy = { ...errors };
         
         for (const field in formValues) {
-            if (!formValues[field]) {
+            if (!formValues[field]) { // check for blank feilds
                 formValid = false;
                 errorsCopy[field] = true;
             }
