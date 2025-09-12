@@ -8,7 +8,8 @@ function Dashboard() {
 
             <nav>
                 <ul>
-                    <li><Link to="profile">Profile</Link></li>
+                    <li><Link to="profile1">Profile 1</Link></li>
+                    <li><Link to="profile2">Profile 2</Link></li>
                 </ul>
             </nav>
 
