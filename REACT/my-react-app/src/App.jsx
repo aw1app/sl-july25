@@ -3,6 +3,7 @@ import Home from './pages/Home';
 import UserProfile from './pages/UserProfile';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Dashboard from './pages/Dashboard';
 
 function App() {
     return (
@@ -11,6 +12,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/user/:userId/:x1" element={<UserProfile />} />
+                <Route path="/dashboard" element={<Dashboard />} />
             </Routes>
             <Footer />
      </>
