@@ -12,7 +12,8 @@ const Timer = () => {
             setSeconds(prevSeconds => prevSeconds + 1);
         },
 
-        [x, y]); // run only once 
+        [x, y]
+    ); // [] - run only once , [x,y] - run whenever x or y changes
 
     
 
@@ -22,19 +23,19 @@ const Timer = () => {
     }
 
     const clickMeToChangeY = () => {
-       SetX( prev => prev + 1);
-        console.log("x",x);
+       SetY( prev => prev + 1);
+        console.log("y",y);
     }
 
     return (
-        <div>
+        <>
             <h1>Timer: {seconds} seconds</h1>
             <button onClick={() => setSeconds(0)}>Reset</button> <br/>
 
             <button onClick={clickMeToChangeX}>clickMeToChangeX</button>
             <button onClick={clickMeToChangeY}>clickMeToChangeY </button>
             {x} {y}
-        </div>
+        </>
     );
 };
 
